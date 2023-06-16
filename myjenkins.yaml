@@ -1,54 +1,53 @@
 jenkins:
   agentProtocols:
-  - "JNLP4-connect"
-  - "Ping"
+    - "JNLP4-connect"
+    - "Ping"
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: false
   disableRememberMe: false
   labelAtoms:
-  - name: "agent"
-  - name: "built-in"
-  - name: "devops"
+    - name: "agent"
+    - name: "built-in"
+    - name: "devops"
   markupFormatter: "plainText"
   mode: NORMAL
   myViewsTabBar: "standard"
   nodes:
-  - permanent:
-      labelString: "agent devops"
-      launcher:
-        ssh:
-          credentialsId: "build-agent-creds"
-          host: "agent"
-          port: 22
-          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
-      name: "agent"
-      nodeProperties:
-      - toolLocation:
-          locations:
-          - key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
-      remoteFS: "/home/jenkins/agent"
-      retentionStrategy: "always"
-  - permanent:
-      labelString: "agent17"
-      launcher:
-        ssh:
-          credentialsId: "build-agent-creds"
-          host: "agent17"
-          port: 22
-          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
-      name: "agent17"
-      nodeProperties:
-      - toolLocation:
-          locations:
-          - key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
-      remoteFS: "/home/jenkins/agent"
-      retentionStrategy: "always"
-      nodeProperties:
-      - envVars:
-          env:
-          - key: "M2_HOME"
-            value: "/opt/maven"
-          - key: "PATH"
-            value: "/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/maven/bin:/opt/gradle/bin:/opt/sonar-scanner/bin:/home/zap"
-  
+    - permanent:
+        labelString: "agent devops"
+        launcher:
+          ssh:
+            credentialsId: "build-agent-creds"
+            host: "agent"
+            port: 22
+            sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+        name: "agent"
+        nodeProperties:
+          - toolLocation:
+              locations:
+                - key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+        remoteFS: "/home/jenkins/agent"
+        retentionStrategy: "always"
+    - permanent:
+        labelString: "agent17"
+        launcher:
+          ssh:
+            credentialsId: "build-agent-creds"
+            host: "agent17"
+            port: 22
+            sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+        name: "agent17"
+        nodeProperties:
+          - toolLocation:
+              locations:
+                - key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
+        remoteFS: "/home/jenkins/agent"
+        retentionStrategy: "always"
+        nodeProperties:
+          - envVars:
+              env:
+                - key: "M2_HOME"
+                  value: "/opt/maven"
+                - key: "PATH"
+                  value: "/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/maven/bin:/opt/gradle/bin:/opt/sonar-scanner/bin:/home/zap"
