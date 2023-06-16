@@ -44,7 +44,7 @@ jenkins:
           - key: "hudson.plugins.git.GitTool$DescriptorImpl@Default"
       remoteFS: "/home/jenkins/agent"
       retentionStrategy: "always
-     nodeProperties:
+      nodeProperties:
       - envVars:
           env:
           - key: "M2_HOME"
